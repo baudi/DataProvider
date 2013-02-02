@@ -1,13 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace DataProvider
 {
-    public class DataContext
+    public class DataContext : IDisposable
     {
         public void SaveChange()
         {}
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
