@@ -7,7 +7,6 @@ namespace BusinessObject
         public long ClassDefinitionId { get; set; }
         public string Name { get; set; }
 
-        //Prop navigator
         public virtual ICollection<AttributeDefinition> Attributes { get; set; }
         public virtual ICollection<ClassInstance> ClassInstances { get; set; }
     }
