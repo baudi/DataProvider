@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="DataContainer.cs" />
     <Compile Include="DataContext.cs" />
+    <Compile Include="DataQueryContext.cs" />
+    <Compile Include="DataQueryProvider.cs" />
     <Compile Include="DataSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query.cs" />

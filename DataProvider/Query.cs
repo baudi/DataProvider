@@ -9,8 +9,8 @@ namespace DataProvider
 {
     public class Query<T> : IOrderedQueryable<T>
     {
-        private QueryProvider _provider;
-        private Expression _expression;
+        protected QueryProvider _provider;
+        protected Expression _expression;
 
         public Query() {}
 
@@ -20,8 +20,8 @@ namespace DataProvider
             {
                 throw new ArgumentNullException("provider");
             }
-            this._provider = provider;
-            this._expression = Expression.Constant(this);
+            _provider = provider;
+            _expression = Expression.Constant(this);
         }
 
         public Query(QueryProvider provider, Expression expression)
@@ -38,13 +38,13 @@ namespace DataProvider
             {
                 throw new ArgumentOutOfRangeException("expression");
             }
-            this._provider = provider;
-            this._expression = expression;
+            _provider = provider;
+            _expression = expression;
         }
 
         Expression IQueryable.Expression
         {
-            get { return this._expression; }
+            get { return _expression; }
         }
 
         Type IQueryable.ElementType
@@ -54,22 +54,22 @@ namespace DataProvider
 
         IQueryProvider IQueryable.Provider
         {
-            get { return this._provider; }
+            get { return _provider; }
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            return ((IEnumerable<T>)this._provider.Execute(this._expression)).GetEnumerator();
+            return ((IEnumerable<T>)_provider.Execute(_expression)).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return ((IEnumerable)this._provider.Execute(this._expression)).GetEnumerator();
+            return ((IEnumerable)_provider.Execute(_expression)).GetEnumerator();
         }
 
         public override string ToString()
         {
-            return this._provider.GetQueryText(this._expression);
+            return _provider.GetQueryText(_expression);
         }
     }
 }

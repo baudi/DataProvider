@@ -9,7 +9,7 @@ namespace DataProvider
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            DataContainer.Instance.ClearData();
         }
     }
 }
