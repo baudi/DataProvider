@@ -48,7 +48,14 @@
     <Compile Include="Query.cs" />
     <Compile Include="QueryProvider.cs" />
     <Compile Include="TypeSystem.cs" />
+    <Compile Include="Visitors\Evaluator.cs" />
+    <Compile Include="Visitors\ExpressionTreeHelpers.cs" />
+    <Compile Include="Visitors\ExpressionTreeModifier.cs" />
+    <Compile Include="Visitors\InnermostWhereFinder.cs" />
+    <Compile Include="Visitors\InvalidQueryException.cs" />
+    <Compile Include="Visitors\LocationFinder.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
