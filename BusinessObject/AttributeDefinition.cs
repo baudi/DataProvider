@@ -1,16 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
+using System.Runtime.Serialization;
 
 namespace BusinessObject
 {
+    [DataContract(IsReference = true)]
     public class AttributeDefinition
     {
-        public long AttributeDefinitionId { get; set; }
+        [DataMember]
+        public long Id { get; set; }
+
+        [DataMember]
         public string Type { get; set; }
+
+        [DataMember]
         public string Name { get; set; }
 
-        public int ClassId { get; set; }
-        
-        public virtual ClassDefinition AsignedMyClass { get; set; }
-        public virtual ICollection<AttributeInstance> AttributeInstances { get; set; }
+        [DataMember]
+        public long ClassDefinitionId { get; set; }
+
+        [DataMember]
+        public virtual ClassDefinition ClassDefinition { get; set; }
+
+        [DataMember]
+        public virtual Collection<AttributeInstance> AttributeInstances { get; set; }
     }
 }

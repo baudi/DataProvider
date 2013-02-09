@@ -1,11 +1,20 @@
-﻿namespace BusinessObject
+﻿using System.Runtime.Serialization;
+
+namespace BusinessObject
 {
+    [DataContract(IsReference = true)]
     public class Relationship
     {
-        public long RelationshipId { get; set; }
-        public string Type { get; set; }
+        [DataMember]
+        public long Id { get; set; }
 
+        [DataMember]
         public virtual ClassDefinition Source { get; set; }
+
+        [DataMember]
         public virtual ClassDefinition Target { get; set; }
+
+        [DataMember]
+        public string Type { get; set; }
     }
 }

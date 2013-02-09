@@ -1,13 +1,26 @@
-﻿namespace BusinessObject
+﻿using System.Runtime.Serialization;
+
+namespace BusinessObject
 {
+    [DataContract(IsReference = true)]
     public class AttributeInstance
     {
-        public long AttributeInstanceId { get; set; }
+        [DataMember]
+        public long Id { get; set; }
+        
+        [DataMember]
         public string Value { get; set; }
 
+        [DataMember]
         public long ClassInstanceId { get; set; }
         
-        public virtual ClassInstance AsignedClassInstance { get; set; }
-        public virtual AttributeDefinition AsignedMyAttribute { get; set; }
+        [DataMember]
+        public virtual ClassInstance ClassInstance { get; set; }
+        
+        [DataMember]
+        public long AttributeDefinitionId { get; set; }
+
+        [DataMember]
+        public virtual AttributeDefinition AttributeDefinition { get; set; }
     }
 }
